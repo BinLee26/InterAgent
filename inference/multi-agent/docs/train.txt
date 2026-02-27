@@ -1,0 +1,35 @@
+Step 1. Train
+In ase/data/cfg/humanoid_il_dm_low.yaml, set ["collect dataset"] = False.
+In ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml, set ["player"]["eval"] = False.
+
+Motion files used for training tracking policy is stored in ase/data/motions/intergen_amp/{training_dataset}.yaml
+(See ase/data/motions/intergen_amp/dataset_intergen_amp_clean.yaml).
+
+train from scratch (phase 1):
+1. In ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml, set ["load_checkpoint"] = False. 
+2. run python ase/run.py --task HumanoidIlGetup --cfg_env ase/data/cfg/humanoid_il_dm_low.yaml --cfg_train ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml --motion_file ase/data/motions/intergen_amp/{training_dataset}.yaml --num_envs 3072 --headless
+
+train from checkpoint (data mining phase 2, 3, ...)
+1. In ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml, set ["load_checkpoint"] = True.
+2. run python ase/run.py --task HumanoidIlGetup --cfg_env ase/data/cfg/humanoid_il_dm_low.yaml --cfg_train ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml --motion_file ase/data/motions/intergen_amp/{training_dataset}.yaml --num_envs 3072 --headless --checkpoint output/{last_phase_checkpoint}/nn/IL_DM_Low.pth
+
+
+Step 2. Eval success rate
+
+1. In ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml, set ["player"]["eval"] = True, ["player"]["save_succ_rate"] = True. Success rate is saved in ["player"]["eval_save_path"].
+2. run python ase/run.py --test --task HumanoidIlDMEval --cfg_env ase/data/cfg/humanoid_il_dm_low.yaml --cfg_train ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml --motion_file ase/data/motions/intergen_amp/{training_dataset}.yaml --headless  --checkpoint output/{model_path}/nn/IL_DM_Low.pth
+3. Open ase/learning/eval_policy.py, change the data load path to {eval_save_path} (Change this line : data = joblib.load(f"ase/results/{model_v}split{split_num}.pkl"))
+4. run ase/learning/eval_policy.py, good and bad motions lists will be saved in ase/data/motions/intergen_amp. There should also be a good.txt file in root dir.
+
+
+Step 3. Collect tracking dataset
+
+1. Open generate_tracking_data.sh, change the motion_list_file to "good.txt" saved in last step, change the checkpoint_path to corresponding tracking policy.
+2. In ase/data/cfg/humanoid_il_dm_low.yaml, set ["collect dataset"] = True.
+3. In ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml, set ["player"]["tracking_data_save_path"] to path you want to save your tracking dataset.
+4. Uncomment the line "self.gym.simulate(self.sim)" in _reset_env function in ase/env/tasks/humanoid_il_dm_eval.py.
+Note: Only uncomment this line in data collection step, this line should be commented in Eval success rate step.
+
+
+Once the dataset is collected, set the training dataset to be the bad motions of this phase, and checkpoint_path to be the tracking policy of this phase, and start training next phase.
+(Remember to comment out the line "self.gym.simulate(self.sim)" in _reset_env function in ase/env/tasks/humanoid_il_dm_eval.py).

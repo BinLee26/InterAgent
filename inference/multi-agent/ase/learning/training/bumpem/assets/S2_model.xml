@@ -1,0 +1,374 @@
+<mujoco>
+    <compiler angle="radian" coordinate="local" meshdir="Geometry/" inertiafromgeom="auto" balanceinertia="true" boundmass="0.001" boundinertia="0.001"/>
+    <default>
+        <geom conaffinity="0" rgba="0.7 0.5 .3 1" margin="0.001"/>
+        <site rgba="0.7 0.5 0.3 1"/>
+        <joint limited="true" damping="0.1" armature="0.1" stiffness="0"/>
+        <motor ctrllimited="true" ctrlrange="-1 1"/>
+    </default>
+    <option timestep="0.01"/>
+    <size njmax="1000" nconmax="400" nuser_jnt="1"/>
+    <asset>
+        <texture name="skybox" builtin="gradient" height="100" rgb1=".1 .541 .796" rgb2=".53 .8 .92" type="skybox" width="100"/>
+        <texture name="texgeom" builtin="flat" height="1278" mark="cross" markrgb="1 1 1" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+        <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3" rgb2=".2 .3 .4" width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+        <material name="MatPlane" reflectance="0.2" texrepeat="1 1" texuniform="true" texture="grid"/>
+        <material name="geom" texture="texgeom" texuniform="true"/>
+        <mesh name="r_pelvis" file="r_pelvis.vtp.ply.stl" scale="1.007840 0.899090 1.101404"/>
+        <mesh name="l_pelvis" file="l_pelvis.vtp.ply.stl" scale="1.007840 0.899090 1.101404"/>
+        <mesh name="sacrum" file="sacrum.vtp.ply.stl" scale="1.007840 0.899090 1.101404"/>
+        <mesh name="r_femur" file="r_femur.vtp.ply.stl" scale="0.950650 1.137178 1.084943"/>
+        <mesh name="r_tibia" file="r_tibia.vtp.ply.stl" scale="1.105704 1.054136 0.965133"/>
+        <mesh name="r_fibula" file="r_fibula.vtp.ply.stl" scale="1.105704 1.054136 0.965133"/>
+        <mesh name="r_talus" file="r_talus.vtp.ply.stl" scale="0.871802 1.138977 1.036672"/>
+        <mesh name="r_foot" file="r_foot.vtp.ply.stl" scale="0.929744 1.102322 1.085652"/>
+        <mesh name="r_bofoot" file="r_bofoot.vtp.ply.stl" scale="1.013466 1.042091 1.043625"/>
+        <mesh name="l_femur" file="l_femur.vtp.ply.stl" scale="0.950650 1.137178 1.084943"/>
+        <mesh name="l_tibia" file="l_tibia.vtp.ply.stl" scale="1.105704 1.054136 0.965133"/>
+        <mesh name="l_fibula" file="l_fibula.vtp.ply.stl" scale="1.105704 1.054136 0.965133"/>
+        <mesh name="l_talus" file="l_talus.vtp.ply.stl" scale="0.871802 1.138977 1.036672"/>
+        <mesh name="l_foot" file="l_foot.vtp.ply.stl" scale="0.929744 1.102322 1.085652"/>
+        <mesh name="l_bofoot" file="l_bofoot.vtp.ply.stl" scale="1.013466 1.042091 1.043625"/>
+        <mesh name="hat_spine" file="hat_spine.vtp.ply.stl" scale="1.160571 0.869675 1.057426"/>
+        <mesh name="hat_jaw" file="hat_jaw.vtp.ply.stl" scale="1.160571 0.869675 1.057426"/>
+        <mesh name="hat_skull" file="hat_skull.vtp.ply.stl" scale="1.160571 0.869675 1.057426"/>
+        <mesh name="hat_ribs_scap" file="hat_ribs_scap.vtp.ply.stl" scale="1.160571 0.869675 1.057426"/>
+        <mesh name="humerus_rv" file="humerus_rv.vtp.ply.stl" scale="1.122789 1.138211 1.224478"/>
+        <mesh name="ulna_rv" file="ulna_rv.vtp.ply.stl" scale="0.910778 0.989403 0.990192"/>
+        <mesh name="radius_rv" file="radius_rv.vtp.ply.stl" scale="0.910778 0.989403 0.990192"/>
+        <mesh name="pisiform_rvs" file="pisiform_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="lunate_rvs" file="lunate_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="scaphoid_rvs" file="scaphoid_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="triquetrum_rvs" file="triquetrum_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="hamate_rvs" file="hamate_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="capitate_rvs" file="capitate_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="trapezoid_rvs" file="trapezoid_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="trapezium_rvs" file="trapezium_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal2_rvs" file="metacarpal2_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_proximal_rvs" file="index_proximal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_medial_rvs" file="index_medial_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_distal_rvs" file="index_distal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal3_rvs" file="metacarpal3_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_proximal_rvs" file="middle_proximal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_medial_rvs" file="middle_medial_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_distal_rvs" file="middle_distal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal4_rvs" file="metacarpal4_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_proximal_rvs" file="ring_proximal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_medial_rvs" file="ring_medial_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_distal_rvs" file="ring_distal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal5_rvs" file="metacarpal5_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_proximal_rvs" file="little_proximal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_medial_rvs" file="little_medial_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_distal_rvs" file="little_distal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal1_rvs" file="metacarpal1_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="thumb_proximal_rvs" file="thumb_proximal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="thumb_distal_rvs" file="thumb_distal_rvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="humerus_lv" file="humerus_lv.vtp.ply.stl" scale="1.122789 1.138211 1.224478"/>
+        <mesh name="ulna_lv" file="ulna_lv.vtp.ply.stl" scale="0.910778 0.989403 0.990192"/>
+        <mesh name="radius_lv" file="radius_lv.vtp.ply.stl" scale="0.910778 0.989403 0.990192"/>
+        <mesh name="pisiform_lvs" file="pisiform_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="lunate_lvs" file="lunate_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="scaphoid_lvs" file="scaphoid_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="triquetrum_lvs" file="triquetrum_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="hamate_lvs" file="hamate_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="capitate_lvs" file="capitate_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="trapezoid_lvs" file="trapezoid_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="trapezium_lvs" file="trapezium_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal2_lvs" file="metacarpal2_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_proximal_lvs" file="index_proximal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_medial_lvs" file="index_medial_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="index_distal_lvs" file="index_distal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal3_lvs" file="metacarpal3_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_proximal_lvs" file="middle_proximal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_medial_lvs" file="middle_medial_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="middle_distal_lvs" file="middle_distal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal4_lvs" file="metacarpal4_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_proximal_lvs" file="ring_proximal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_medial_lvs" file="ring_medial_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="ring_distal_lvs" file="ring_distal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal5_lvs" file="metacarpal5_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_proximal_lvs" file="little_proximal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_medial_lvs" file="little_medial_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="little_distal_lvs" file="little_distal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="metacarpal1_lvs" file="metacarpal1_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="thumb_proximal_lvs" file="thumb_proximal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+        <mesh name="thumb_distal_lvs" file="thumb_distal_lvs.vtp.ply.stl" scale="0.878050 0.878050 0.878050"/>
+    </asset>
+
+
+
+    <worldbody>
+        <camera name="back" pos="-3.5 0 1.3" euler="1.570796  -1.570796 0" mode="fixed"/>
+        <camera name="front" pos="3.5 0 1.3"  euler= "1.570796  1.570796 0" mode="fixed"/>
+        <camera name="side" pos="0 3.5 1.3" euler= "1.570796  3.14159265 0" mode="fixed"/>
+<!--        <camera name="side" pos="0 -3.5 1.3" euler= "0 3.14159265  1.570796 " mode="fixed"/>-->
+
+        <geom condim="3" friction="1 .1 .1" material="MatPlane" name="floor" pos="0 0 0" rgba="0.8 0.9 0.8 1" size="50 50 0.2" type="plane"/>
+        <light cutoff="100" diffuse="1 1 1" dir="0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1"/>
+        <light cutoff="100" diffuse="1 1 1" dir="0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1"/>
+
+<!--        <light name="light" pos="0 0 1.4" dir="0 0 -1" ambient="0.8 0.8 0.8" diffuse="0.8 0.8 0.8" directional="true" />-->
+
+        <body name="pelvis" pos="0.000000 0.000000 0.000000" euler="1.570796 0.000000 -0.000000">
+<!--        <body name="pelvis" pos="0.000000 0.000000 0.000000" euler="1.570796  -1.570796 -0.000000">-->
+<!--            <camera name="side" pos="0 -.1 4.7" euler="0 0 0" mode="trackcom"/>-->
+<!--            <camera name="front" pos="0 0 -4.7" eule    r="0 -3.14159265 0" mode="trackcom"/>-->
+<!--            <camera name="back" pos="-4.7 -.1 0" euler="0 -1.570796325 0" mode="trackcom"/>-->
+
+            <inertial pos="-0.070700 0.000000 0.000000" mass="11.777000" fullinertia="0.102800 0.087100 0.057900 0.000000 0.000000 0.000000"/>
+            
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_tx" type="slide" axis="1.000000 0.000000 0.000000" limited="true" range="-5.000000 5.000000" damping="0" stiffness="0" armature="0"/>
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_ty" type="slide" axis="0.000000 1.000000 0.000000" limited="true" range="-1.000000 2.000000" damping="0" stiffness="0" armature="0"/>
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_tz" type="slide" axis="0.000000 0.000000 1.000000" limited="true" range="-3.000000 3.000000" damping="0" stiffness="0" armature="0"/>
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_tilt" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-3.141593 3.141593" damping="0" stiffness="0" armature="0"/>
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_list" type="hinge" axis="1.000000 0.000000 0.000000" limited="true" range="-3.141593 3.141593" damping="0" stiffness="0" armature="0"/>
+            <joint pos="0.000000 0.000000 0.000000" name="pelvis_rotation" type="hinge" axis="0.000000 1.000000 0.000000" limited="true" range="-3.141593 3.141593" damping="0" stiffness="0" armature="0"/>
+            <geom name="pelvis_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_pelvis"/>
+            <geom name="pelvis_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_pelvis"/>
+            <geom name="pelvis_ShapeNode_2" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="sacrum"/>
+            <body name="femur_r" pos="-0.056717 -0.070570 0.085094" euler="-0.000000 0.000000 -0.000000">
+                <inertial pos="0.000000 -0.170000 0.000000" mass="9.301400" fullinertia="0.133900 0.035100 0.141200 0.000000 0.000000 0.000000"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_flexion_r" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-0.523599 2.094395"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_adduction_r" type="hinge" axis="1.000000 0.000000 0.000000" limited="true" range="-0.872665 0.523599"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_rotation_r" type="hinge" axis="0.000000 1.000000 0.000000" limited="true" range="-0.698132 0.698132"/>
+                <geom name="femur_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_femur"/>
+
+                <geom name="femur_r_capsule" mass="0.0" euler= "1.5707963 0  0" pos="0 -.25 0" size="0.01 .15" type="capsule" conaffinity="1" condim="1" contype="1" margin="0.001" rgba=".8 .2 .1 1" />
+
+                <body name="tibia_r" pos="0.001254 -0.460197 -0.001550" euler="-0.000000 0.000000 -0.000000">
+                    <inertial pos="0.000000 -0.186700 0.000000" mass="3.707500" fullinertia="0.050400 0.005100 0.051100 0.000000 0.000000 0.000000"/>
+                    <joint pos="-0.008945 -0.003726 -0.001433" name="walker_knee_r" type="hinge" axis="0.115448 0.126848 -0.985181" limited="true" range="0.000000 2.133559"/>
+                    <geom name="tibia_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_tibia"/>
+                    <geom name="tibia_r_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_fibula"/>
+
+                    <geom name="tibia_r_capsule" mass="0.0" euler= "1.5707963 0  0" pos="0 -.25 0" size="0.01 .15" type="capsule" conaffinity="1" condim="1" contype="1" margin="0.001" rgba=".8 .2 .1 1" />
+
+                    <body name="talus_r" pos="-0.011057 -0.421654 0.000000" euler="-0.000000 0.000000 -0.000000">
+                        <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" fullinertia="0.001000 0.001000 0.001000 0.000000 0.000000 0.000000"/>
+                        <joint pos="0.000000 0.000000 0.000000" name="ankle_angle_r" type="hinge" axis="-0.105014 -0.174022 0.979126" limited="true" range="-0.698132 0.523599"/>
+                        <geom name="talus_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_talus"/>
+                        <body name="calcn_r" pos="-0.042518 -0.047780 0.008210" euler="-0.000000 -0.000000 -0.000000">
+                            <inertial pos="0.100000 0.030000 0.000000" mass="1.250000" fullinertia="0.001400 0.003900 0.004100 0.000000 0.000000 0.000000"/>
+<!--                            <joint pos="0.000000 0.000000 0.000000" name="subtalar_angle_r" type="hinge" axis="0.787180 0.604747 -0.120948" limited="true" stiffness="25" range="-0.610865 0.610865"/>-->
+                            
+                            <geom name="calcn_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_foot"/>
+
+                            <geom name="heel_r" mass="0.0" pos=".017 .012 -.007" size="0.025" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1" />
+                            <geom name="toe1_jnt_r" mass="0.0" pos=".16 0.002 -.03" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+                            <geom name="toe5_jnt_r" mass="0.0" pos=".13 0.002 .04" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+
+
+                            <body name="toes_r" pos="0.166238 -0.002205 0.001173" euler="0.000000 0.000000 -0.000000">
+                                <inertial pos="0.034600 0.006000 -0.017500" mass="0.216600" fullinertia="0.000100 0.000200 0.001000 0.000000 0.000000 0.000000"/>
+                                <joint pos="0.000000 0.000000 0.000000" name="mtp_angle_r" type="hinge" axis="0.580955 0.000002 -0.813936" limited="true" damping="1.9" stiffness="25" range="-0.785398 0.523599"/>
+
+                                <geom name="toes_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="r_bofoot"/>
+
+                                <geom name="toe1_r" mass="0.0" pos=".06 0.002 -.02" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+                                <geom name="toe5_r" mass="0.0" pos=".006 0.002 .050" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+
+
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="femur_l" pos="-0.056717 -0.070570 -0.085094" euler="-0.000000 0.000000 -0.000000">
+                <inertial pos="0.000000 -0.170000 0.000000" mass="9.301400" fullinertia="0.133900 0.035100 0.141200 0.000000 0.000000 0.000000"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_flexion_l" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-0.523599 2.094395"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_adduction_l" type="hinge" axis="-1.000000 -0.000000 -0.000000" limited="true" range="-0.872665 0.523599"/>
+                <joint pos="0.000000 0.000000 0.000000" name="hip_rotation_l" type="hinge" axis="-0.000000 -1.000000 -0.000000" limited="true" range="-0.698132 0.698132"/>
+
+               <geom name="femur_l_cylinder" mass="0.0" euler= "1.5707963 0  0" pos="0 -.25 0" size="0.01 .15" type="capsule" conaffinity="1" condim="1" contype="1" margin="0.001" rgba=".8 .2 .1 1" />
+
+                <geom name="femur_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_femur"/>
+                <body name="tibia_l" pos="0.001254 -0.460197 0.001550" euler="0.000000 0.000000 -0.000000">
+                    <inertial pos="0.000000 -0.186700 0.000000" mass="3.707500" fullinertia="0.050400 0.005100 0.051100 0.000000 0.000000 0.000000"/>
+                    <joint pos="-0.008945 -0.003726 0.001433" name="walker_knee_l" type="hinge" axis="-0.115448 -0.126848 -0.985181" limited="true" range="0.000000 2.133559"/>
+                    <geom name="tibia_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_tibia"/>
+                    <geom name="tibia_l_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_fibula"/>
+
+                    <geom name="tibia_l_capsule" mass="0.0" euler= "1.5707963 0  0" pos="0 -.25 0" size="0.01 .15" type="capsule" conaffinity="1" condim="1" contype="1" margin="0.001" rgba=".8 .2 .1 1" />
+
+
+                    <body name="talus_l" pos="-0.011057 -0.421654 0.000000" euler="0.000000 -0.000000 -0.000000">
+                        <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" fullinertia="0.001000 0.001000 0.001000 0.000000 0.000000 0.000000"/>
+                        <joint pos="0.000000 0.000000 0.000000" name="ankle_angle_l" type="hinge" axis="0.105014 0.174022 0.979126" limited="true" range="-0.698132 0.523599"/>
+                        <geom name="talus_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_talus"/>
+                        <body name="calcn_l" pos="-0.042518 -0.047780 -0.008210" euler="0.000000 0.000000 -0.000000">
+                            <inertial pos="0.100000 0.030000 0.000000" mass="1.250000" fullinertia="0.001400 0.003900 0.004100 0.000000 0.000000 0.000000"/>
+<!--                            <joint pos="0.000000 0.000000 0.000000" name="subtalar_angle_l" type="hinge" axis="-0.787180 -0.604747 -0.120948" limited="true" stiffness="25"  range="-0.610865 0.610865"/>-->
+
+                            <geom name="calcn_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_foot"/>
+
+                            <geom name="heel_l" mass="0.0" pos=".017 .012 .007" size="0.025" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+                            <geom name="toe1_jnt_l" mass="0.0" pos=".16 0.002 .03" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+                            <geom name="toe5_jnt_l" mass="0.0" pos=".13 0.002 -.04" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+
+                            <body name="toes_l" pos="0.166238 -0.002205 -0.001173" euler="0.000000 -0.000000 -0.000000">
+                                <inertial pos="0.034600 0.006000 0.017500" mass="0.216600" fullinertia="0.000100 0.000200 0.001000 0.000000 0.000000 0.000000"/>
+                                <joint pos="0.000000 0.000000 0.000000" name="mtp_angle_l" type="hinge" axis="-0.580955 0.000002 -0.813936" limited="true" damping="1.9" stiffness="25" range="-0.785398 0.523599"/>
+                                "
+
+                                <geom name="toes_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="l_bofoot"/>
+                                <geom name="toe1_l" mass="0.0" pos=".06 0.002 .02" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+                                <geom name="toe5_l" mass="0.0" pos=".006 0.002 -.050" size="0.012" type="sphere" conaffinity="1" condim="6" contype="1" margin="0.001" rgba=".8 .2 .1 1" priority="1"/>
+
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="torso" pos="-0.101490 0.073276 0.000000" euler="-0.000000 0.000000 -0.000000">
+                <inertial pos="-0.030000 0.320000 0.000000" mass="26.826600" fullinertia="1.474500 0.755500 1.431400 0.000000 0.000000 0.000000"/>
+                <joint pos="0.000000 0.000000 0.000000" name="lumbar_extension" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-1.570796 1.570796"/>
+                <joint pos="0.000000 0.000000 0.000000" name="lumbar_bending" type="hinge" axis="1.000000 0.000000 0.000000" limited="true" range="-1.570796 1.570796"/>
+                <joint pos="0.000000 0.000000 0.000000" name="lumbar_rotation" type="hinge" axis="0.000000 1.000000 0.000000" limited="true" range="-1.570796 1.570796"/>
+                <geom name="torso_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hat_spine"/>
+                <geom name="torso_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hat_jaw"/>
+                <geom name="torso_ShapeNode_2" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hat_skull"/>
+                <geom name="torso_ShapeNode_3" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hat_ribs_scap"/>
+                <body name="humerus_r" pos="0.003662 0.323084 0.179762" euler="-0.000000 0.000000 -0.000000">
+                    <inertial pos="0.000000 -0.164502 0.000000" mass="2.032500" fullinertia="0.011946 0.004121 0.013409 0.000000 0.000000 0.000000"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_flex_r" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-1.570796 1.570796"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_add_r" type="hinge" axis="1.000000 0.000000 0.000000" limited="true" range="-2.094395 1.570796"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_rot_r" type="hinge" axis="0.000000 1.000000 0.000000" limited="true" range="-1.570796 1.570796"/>
+                    <geom name="humerus_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="humerus_rv"/>
+                    <body name="ulna_r" pos="0.014758 -0.325839 -0.011749" euler="-0.000000 0.000000 -0.000000">
+                        <inertial pos="0.000000 -0.120525 0.000000" mass="0.607500" fullinertia="0.002962 0.000618 0.003213 0.000000 0.000000 0.000000"/>
+                        <joint pos="0.000000 0.000000 0.000000" name="elbow_flex_r" type="hinge" axis="0.226047 0.022269 0.973862" limited="true" range="0.000000 2.618000"/>
+                        <geom name="ulna_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ulna_rv"/>
+                        <body name="radius_r" pos="-0.006127 -0.012869 0.025827" euler="-0.000000 -0.000000 -0.000000">
+                            <inertial pos="0.000000 -0.120525 0.000000" mass="0.607500" fullinertia="0.002962 0.000618 0.003213 0.000000 0.000000 0.000000"/>
+                            <joint pos="0.000000 0.000000 0.000000" name="pro_sup_r" type="hinge" axis="0.056398 0.998406 0.001953" limited="true" range="0.000000 1.570796"/>
+
+
+                            <geom name="radius_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="radius_rv"/>
+                            <body name="hand_r" pos="-0.008012 -0.233342 0.013477" euler="0.000000 0.000000 -0.000000">
+                                <inertial pos="0.000000 -0.068095 0.000000" mass="0.457500" fullinertia="0.000892 0.000547 0.001340 0.000000 0.000000 0.000000"/>
+                                <geom name="hand_r_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="pisiform_rvs"/>
+                                <geom name="hand_r_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="lunate_rvs"/>
+                                <geom name="hand_r_ShapeNode_2" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="scaphoid_rvs"/>
+                                <geom name="hand_r_ShapeNode_3" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="triquetrum_rvs"/>
+                                <geom name="hand_r_ShapeNode_4" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hamate_rvs"/>
+                                <geom name="hand_r_ShapeNode_5" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="capitate_rvs"/>
+                                <geom name="hand_r_ShapeNode_6" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="trapezoid_rvs"/>
+                                <geom name="hand_r_ShapeNode_7" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="trapezium_rvs"/>
+                                <geom name="hand_r_ShapeNode_8" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal2_rvs"/>
+                                <geom name="hand_r_ShapeNode_9" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_proximal_rvs"/>
+                                <geom name="hand_r_ShapeNode_10" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_medial_rvs"/>
+                                <geom name="hand_r_ShapeNode_11" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_distal_rvs"/>
+                                <geom name="hand_r_ShapeNode_12" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal3_rvs"/>
+                                <geom name="hand_r_ShapeNode_13" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_proximal_rvs"/>
+                                <geom name="hand_r_ShapeNode_14" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_medial_rvs"/>
+                                <geom name="hand_r_ShapeNode_15" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_distal_rvs"/>
+                                <geom name="hand_r_ShapeNode_16" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal4_rvs"/>
+                                <geom name="hand_r_ShapeNode_17" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_proximal_rvs"/>
+                                <geom name="hand_r_ShapeNode_18" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_medial_rvs"/>
+                                <geom name="hand_r_ShapeNode_19" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_distal_rvs"/>
+                                <geom name="hand_r_ShapeNode_20" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal5_rvs"/>
+                                <geom name="hand_r_ShapeNode_21" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_proximal_rvs"/>
+                                <geom name="hand_r_ShapeNode_22" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_medial_rvs"/>
+                                <geom name="hand_r_ShapeNode_23" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_distal_rvs"/>
+                                <geom name="hand_r_ShapeNode_24" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal1_rvs"/>
+                                <geom name="hand_r_ShapeNode_25" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="thumb_proximal_rvs"/>
+                                <geom name="hand_r_ShapeNode_26" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="thumb_distal_rvs"/>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="humerus_l" pos="0.003662 0.323084 -0.179762" euler="-0.000000 0.000000 -0.000000">
+                    <inertial pos="0.000000 -0.164502 0.000000" mass="2.032500" fullinertia="0.011946 0.004121 0.013409 0.000000 0.000000 0.000000"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_flex_l" type="hinge" axis="0.000000 0.000000 1.000000" limited="true" range="-1.570796 1.570796"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_add_l" type="hinge" axis="-1.000000 -0.000000 -0.000000" limited="true" range="-2.094395 1.570796"/>
+                    <joint pos="0.000000 0.000000 0.000000" name="arm_rot_l" type="hinge" axis="-0.000000 -1.000000 -0.000000" limited="true" range="-1.570796 1.570796"/>
+                    <geom name="humerus_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="humerus_lv"/>
+                    <body name="ulna_l" pos="0.014758 -0.325839 0.011749" euler="0.000000 -0.000000 -0.000000">
+                        <inertial pos="0.000000 -0.120525 0.000000" mass="0.607500" fullinertia="0.002962 0.000618 0.003213 0.000000 0.000000 0.000000"/>
+                        <joint pos="0.000000 0.000000 0.000000" name="elbow_flex_l" type="hinge" axis="-0.226047 -0.022269 0.973862" limited="true" range="0.000000 2.618000"/>
+                        <geom name="ulna_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ulna_lv"/>
+                        <body name="radius_l" pos="-0.006127 -0.012869 -0.025827" euler="-0.000000 0.000000 -0.000000">
+                            <inertial pos="0.000000 -0.120525 0.000000" mass="0.607500" fullinertia="0.002962 0.000618 0.003213 0.000000 0.000000 0.000000"/>
+                            <joint pos="0.000000 0.000000 0.000000" name="pro_sup_l" type="hinge" axis="-0.056398 -0.998406 0.001953" limited="true" range="0.000000 1.570796"/>
+                            <geom name="radius_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="radius_lv"/>
+                            <body name="hand_l" pos="-0.008012 -0.233342 -0.013477" euler="-0.000000 0.000000 -0.000000">
+                                <inertial pos="0.000000 -0.068095 0.000000" mass="0.457500" fullinertia="0.000892 0.000547 0.001340 0.000000 0.000000 0.000000"/>
+                                <geom name="hand_l_ShapeNode_0" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="pisiform_lvs"/>
+                                <geom name="hand_l_ShapeNode_1" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="lunate_lvs"/>
+                                <geom name="hand_l_ShapeNode_2" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="scaphoid_lvs"/>
+                                <geom name="hand_l_ShapeNode_3" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="triquetrum_lvs"/>
+                                <geom name="hand_l_ShapeNode_4" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="hamate_lvs"/>
+                                <geom name="hand_l_ShapeNode_5" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="capitate_lvs"/>
+                                <geom name="hand_l_ShapeNode_6" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="trapezoid_lvs"/>
+                                <geom name="hand_l_ShapeNode_7" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="trapezium_lvs"/>
+                                <geom name="hand_l_ShapeNode_8" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal2_lvs"/>
+                                <geom name="hand_l_ShapeNode_9" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_proximal_lvs"/>
+                                <geom name="hand_l_ShapeNode_10" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_medial_lvs"/>
+                                <geom name="hand_l_ShapeNode_11" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="index_distal_lvs"/>
+                                <geom name="hand_l_ShapeNode_12" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal3_lvs"/>
+                                <geom name="hand_l_ShapeNode_13" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_proximal_lvs"/>
+                                <geom name="hand_l_ShapeNode_14" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_medial_lvs"/>
+                                <geom name="hand_l_ShapeNode_15" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="middle_distal_lvs"/>
+                                <geom name="hand_l_ShapeNode_16" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal4_lvs"/>
+                                <geom name="hand_l_ShapeNode_17" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_proximal_lvs"/>
+                                <geom name="hand_l_ShapeNode_18" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_medial_lvs"/>
+                                <geom name="hand_l_ShapeNode_19" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="ring_distal_lvs"/>
+                                <geom name="hand_l_ShapeNode_20" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal5_lvs"/>
+                                <geom name="hand_l_ShapeNode_21" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_proximal_lvs"/>
+                                <geom name="hand_l_ShapeNode_22" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_medial_lvs"/>
+                                <geom name="hand_l_ShapeNode_23" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="little_distal_lvs"/>
+                                <geom name="hand_l_ShapeNode_24" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="metacarpal1_lvs"/>
+                                <geom name="hand_l_ShapeNode_25" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="thumb_proximal_lvs"/>
+                                <geom name="hand_l_ShapeNode_26" pos="0.000000 0.000000 0.000000" euler="-0.000000 0.000000 -0.000000" type="mesh" mesh="thumb_distal_lvs"/>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+
+        <body name="treadmill" pos="0 0 0">
+            <geom pos="0 0 .2" friction="1 1 1"  material="MatPlane" name="treadmill"  rgba=".4 .5 .4 1" mass="2000000" size="150 1.5 0.1" type="box" condim="3" />
+            <joint name="treadmill" axis = "1 0 0 " pos="0 0 0" range="-100 100" type="slide"/>
+        </body> 
+
+    </worldbody>
+    <actuator>
+        <motor gear="250" joint="hip_flexion_r" name="hip_flexion_r"/>
+        <motor gear="250" joint="hip_adduction_r" name="hip_adduction_r"/>
+        <motor gear="150" joint="hip_rotation_r" name="hip_rotation_r"/>
+
+        <motor gear="350" joint="walker_knee_r" name="walker_knee_r"/>
+        <motor gear="200" joint="ankle_angle_r" name="ankle_angle_r"/>
+<!--        <motor gear="30" joint="subtalar_angle_r" name="subtalar_angle_r"/>-->
+        <motor gear="30" joint="mtp_angle_r" name="mtp_angle_r"/>
+
+        <motor gear="250" joint="hip_flexion_l" name="hip_flexion_l"/>
+        <motor gear="250" joint="hip_adduction_l" name="hip_adduction_l"/>
+        <motor gear="150" joint="hip_rotation_l" name="hip_rotation_l"/>
+
+        <motor gear="350" joint="walker_knee_l" name="walker_knee_l"/>
+        <motor gear="200" joint="ankle_angle_l" name="ankle_angle_l"/>
+<!--        <motor gear="30" joint="subtalar_angle_l" name="subtalar_angle_l"/>-->
+        <motor gear="30" joint="mtp_angle_l" name="mtp_angle_l"/>
+        
+        <motor gear="700" joint="lumbar_extension" name="lumbar_extension"/>
+        <motor gear="300" joint="lumbar_bending" name="lumbar_bending"/>
+        <motor gear="300" joint="lumbar_rotation" name="lumbar_rotation"/>
+
+        <motor gear="200" joint="arm_flex_r" name="arm_flex_r"/>
+        <motor gear="200" joint="arm_add_r" name="arm_add_r"/>
+        <motor gear="200" joint="arm_rot_r" name="arm_rot_r"/>
+
+        <motor gear="150" joint="elbow_flex_r" name="elbow_flex_r"/>
+        <motor gear="50" joint="pro_sup_r" name="pro_sup_r"/>
+
+        <motor gear="200" joint="arm_flex_l" name="arm_flex_l"/>
+        <motor gear="200" joint="arm_add_l" name="arm_add_l"/>
+        <motor gear="200" joint="arm_rot_l" name="arm_rot_l"/>
+
+        <motor gear="150" joint="elbow_flex_l" name="elbow_flex_l"/>
+        <motor gear="50" joint="pro_sup_l" name="pro_sup_l"/>
+    </actuator>
+</mujoco>

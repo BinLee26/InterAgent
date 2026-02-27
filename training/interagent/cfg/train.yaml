@@ -1,0 +1,86 @@
+_target_: training.interagent.workspace.DiffusionPolicyWorkspace
+
+dataset:
+  _target_: training.interagent.dataset.dataset_from_lmdb.DiffusionPolicyDataset
+  motion_path: '/data/data.lmdb'
+  obs_scale_path: '/data/state_ig'
+  action_scale_path: '/data/action'
+
+
+dataloader:
+  batch_size: 256
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+  drop_last: true
+
+val_dataloader:
+  batch_size: 2048
+  num_workers: 1
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+
+ema:
+  _target_: training.utils.ema_model.EMAModel
+  inv_gamma: 1.0
+  max_value: 0.9999
+  min_value: 0.0
+  power: 0.75
+  update_after_step: 0
+
+logging:
+  group: null
+  id: null
+  mode: online
+  name: null
+  project: training
+  resume: true
+
+optimizer:
+  betas:
+    - 0.9
+    - 0.999
+  lr: 0.0001 #0.0001
+  weight_decay: 0.00002
+
+policy: # TODO
+  _target_: training.interagent.policy.DiffusionPolicy
+  model:
+    _target_: training.interagent.modules.TransformerForDiffusion
+    action_dim: 28
+    horizon: 20
+    T_obs: 16
+    T_action: 4
+    proprioception_dim: 223
+    exteroception_dim: 675
+    n_layer: 4
+    n_head: 8
+    n_emb: 768
+    p_drop_attn: 0.1
+    training: True
+
+  noise_scheduler:
+    _target_: diffusers.schedulers.scheduling_ddpm.DDPMScheduler
+    beta_end: 0.02
+    beta_schedule: squaredcos_cap_v2
+    beta_start: 0.0001
+    clip_sample: true
+    num_train_timesteps: 50
+    prediction_type: sample
+    variance_type: fixed_small
+
+training:
+  save_checkpoint_every: 40
+  debug: false
+  logging: true
+  use_ema: true
+  lr_scheduler: cosine
+  lr_warmup_steps: 5000
+  num_epochs: 200
+  rollout_every: 25
+  seed: 2025
+  tqdm_interval_sec: 1.0
+  resume: False
+  resume_path: ''

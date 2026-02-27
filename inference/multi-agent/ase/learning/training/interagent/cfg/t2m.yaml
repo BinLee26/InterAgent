@@ -1,0 +1,94 @@
+_target_: training.interagent.t2m_workspace.DiffusionPolicyWorkspace
+
+dataset:
+    _target_: training.interagent.dataset.dataset.DiffusionPolicyDataset
+    motion_path: "/mnt/nas_38/libin/Interhuman/motion_data_0.pkl"
+    text_path: "/mnt/nas_38/libin/Interhuman/annots"
+    horizon: 6
+
+dataloader:
+    batch_size: 512
+    num_workers: 8
+    persistent_workers: false
+    pin_memory: true
+    shuffle: true
+    drop_last: true
+
+val_dataloader:
+    batch_size: 1024
+    num_workers: 1
+    persistent_workers: false
+    pin_memory: true
+    shuffle: false
+
+ema:
+    _target_: training.utils.ema_model.EMAModel
+    inv_gamma: 1.0
+    max_value: 0.9999
+    min_value: 0.0
+    power: 0.75
+    update_after_step: 0
+
+logging:
+    group: null
+    id: null
+    mode: online
+    name: null
+    project: training
+    resume: true
+
+optimizer:
+    betas:
+        - 0.9
+        - 0.95
+    lr: 0.0001
+    weight_decay: 0.001
+
+policy: # TODO
+    _target_: training.interagent.t2m_policy.DiffusionPolicy
+    model:
+        _target_: training.interagent.t2m_modules.TransformerForDiffusion
+        input_dim: 28
+        output_dim: 28
+        horizon: 6
+        T_obs: 4
+        obs_dim: 448
+        n_layer: 12
+        n_head: 12
+        n_emb: 768
+        obs_type: interagent
+        task: interagent
+        p_drop_emb: 0.1
+        p_drop_attn: 0.1
+        causal_attn: True # (needed for the observation)
+        time_as_cond: True
+        n_cond_layers: 4
+        use_text_embedding: True
+        text_mask_prob: 0.1
+        past_action_visible: False # <------------------------------------- CHECK
+        film_conditioning: True
+        training: True
+
+    noise_scheduler:
+        _target_: diffusers.schedulers.scheduling_ddpm.DDPMScheduler
+        beta_end: 0.02
+        beta_schedule: squaredcos_cap_v2
+        beta_start: 0.0001
+        clip_sample: true
+        num_train_timesteps: 10
+        prediction_type: sample
+        variance_type: fixed_small
+
+training:
+    save_checkpoint_every: 300   # epochs
+    debug: false
+    logging: true
+    use_ema: true
+    device: cuda:0
+    lr_scheduler: cosine
+    lr_warmup_steps: 100
+    num_epochs: 1500
+    rollout_every: 25   # TODO: Maybe implement policy rollouts during training
+    seed: 42
+    tqdm_interval_sec: 1.0
+    val_every: 25       # TODO: Maybe implement val set evaluation during training

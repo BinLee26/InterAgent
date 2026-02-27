@@ -1,0 +1,92 @@
+# No softmax
+params:
+  seed: 0
+
+  algo:
+    name: dm_mcp
+
+  model:
+    name: dm_low
+
+  network:
+    name: dm_mcp
+    separate: True
+    discrete: false
+    has_softmax: False
+    ending_act: True
+
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: None
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: -2.9
+        fixed_sigma: True
+        learn_sigma: False
+
+    mlp:
+      units: [1024, 512]
+      activation: relu
+      d2rl: False
+
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+    disc:
+      units: [1024, 512]
+      activation: relu
+
+      initializer:
+        name: default
+
+  load_checkpoint: True
+
+  config:
+    name: IL_DM_Low
+    env_name: rlgpu
+    multi_gpu: False
+    ppo: True
+    mixed_precision: False
+    normalize_input: True
+    normalize_ref_input: True
+    normalize_value: True
+    reward_shaper:
+      scale_value: 1
+    normalize_advantage: True
+    gamma: 0.99
+    tau: 0.95
+    learning_rate: 2e-5
+    lr_schedule: constant
+    score_to_win: 20000
+    max_epochs: 500000
+    save_best_after: 50
+    save_frequency: 50
+    print_stats: True
+    grad_norm: 1.0
+    entropy_coef: 0.0
+    truncate_grads: False
+    ppo: True
+    e_clip: 0.2
+    horizon_length: 32
+    minibatch_size: 4096
+    mini_epochs: 6
+    critic_coef: 5
+    clip_value: False
+    seq_len: 4
+    bounds_loss_coef: 10
+    enable_eps_greedy: False
+    MoE: False
+
+    player:
+      render: False
+      print_stats: False
+      eval: False
+      save_succ_rate : True
+      eval_save_path: ase/results/clean_r5v2norecov_split2000_4500.pkl
+      tracking_data_save_path: ase/tracking_dataset1_clean_r1
+      player_recovery_step : 45

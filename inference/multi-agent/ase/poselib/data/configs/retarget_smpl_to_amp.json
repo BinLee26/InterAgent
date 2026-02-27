@@ -1,0 +1,26 @@
+{
+    "source_tpose": "ase/poselib/data/smpl_humanoid_tpose.npy",
+    "target_tpose": "ase/poselib/data/amp_humanoid_tpose.npy",
+    "joint_mapping": {
+         "pelvis": "pelvis",
+         "left leg root": "left_thigh",
+         "left knee": "left_shin",
+         "left ankle": "left_foot",
+         "right leg root": "right_thigh",
+         "right knee": "right_shin",
+         "right ankle": "right_foot",
+         "thorax": "torso",
+         "upperneck": "head",
+         "left armroot": "left_upper_arm",
+         "left elbow": "left_lower_arm",
+         "left wrist": "left_hand",
+         "right armroot": "right_upper_arm",
+         "right elbow": "right_lower_arm",
+         "right wrist": "right_hand"
+    },
+    "rotation": [0.0, 0.0,0.0,  1.0],
+    "scale": 5.0,
+    "root_height_offset": 0.0,
+    "trim_frame_beg": -1,
+    "trim_frame_end": -1
+}

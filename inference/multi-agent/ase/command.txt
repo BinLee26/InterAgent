@@ -1,0 +1,6 @@
+# training
+python ase/run.py --task HumanoidLocationDual --cfg_env ase/data/cfg/humanoid_sword_shield_location.yaml --cfg_train ase/data/cfg/train/rlg/hrl_humanoid.yaml --motion_file ase/data/motions/reallusion_sword_shield/RL_Avatar_Idle_Ready_Motion.npy --llc_checkpoint ase/data/models/ase_llc_reallusion_sword_shield.pth --checkpoint ase/data/models/Humanoid.pth --headless
+
+# testing
+python ase/run.py --task HumanoidCompete --cfg_env ase/data/cfg/humanoid_sword_shield_location.yaml --cfg_train ase/data/cfg/train/rlg/hrl_humanoid.yaml --motion_file ase/data/motions/reallusion_sword_shield/RL_Avatar_Idle_Ready_Motion.npy --llc_checkpoint ase/data/models/ase_llc_reallusion_sword_shield.pth --checkpoint output/Humanoid_18-20-18-50/nn/Humanoid.pth --test --num_env 10
+output/Humanoid_18-20-18-50

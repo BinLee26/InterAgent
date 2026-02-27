@@ -1,0 +1,44 @@
+outputs/*
+visuals/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Testing and coverage
+.tox/
+.coverage
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# Logs
+*.log
+pip-log.txt
+
+# Project-specific ignores
+*.swp
+.DS_Store

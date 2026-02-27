@@ -1,0 +1,100 @@
+# if given, will override the device setting in gym. 
+env: 
+  numEnvs: 4096
+  envSpacing: 5
+  episodeLength: 3000
+  isFlagrun: False
+  enableDebugVis: False
+  recordFrames: False
+  
+  pdControl: True
+  powerScale: 1.0
+  controlFrequencyInv: 1 # 60 Hz
+  stateInit: "Random"
+  hybridInitProb: 0.5
+  numAMPObsSteps: 10
+  
+  localRootObs: True
+  keyBodies: ["right_hand", "left_hand", "right_foot", "left_foot"]
+  contactBodies: ["right_foot", "left_foot"]
+
+  terminationHeight: 0.15
+  enableEarlyTermination: True
+  zero_out_far: False
+  avg_terminate : True
+  terminationDistance: 0.5
+  power_reward: True
+  power_coefficient: 0.0005
+
+  obs_v: 4
+  ig_reward: True
+  enableTaskObs: True
+  task_ref_steps: 3
+
+  adjust_motion_weights: True
+  eval_state_init: "Random"
+
+  collect_dataset: False
+  add_action_noise: True
+  action_noise_std: 0.05
+
+  recovery_steps: 30
+  fall_init_prob: 0.5
+
+  height_offset: 0.025
+
+  num_prim: 4
+  prim_config: "ase/data/cfg/train/rlg/il_humanoid_dm_low_v2.yaml"
+  # models_path: [
+  #   "output/IL_backhug02ig/nn/IL_DM_Low.pth",
+  #   "output/IL_DM_Low_3311vec/nn/IL_DM_Low.pth",
+  #   "output/IL_DM_Low_2051vec/nn/IL_DM_Low.pth"
+  # ]
+  models_path: [
+    "output/dataset_1_500_first_15-10-27-38/nn/dataset_1_500_first.pth",
+    "output/dataset_501_1000_first_15-10-28-44/nn/dataset_501_1000_first.pth",
+    "output/dataset_1001_1500_first_15-10-30-50/nn/dataset_1001_1500_first.pth",
+    "output/dataset_1501_2000_first_15-10-31-54/nn/dataset_1501_2000_first.pth",
+  ]
+
+  asset:
+    assetRoot: "ase/data/assets"
+    assetFileName: "mjcf/amp_humanoid.xml"
+
+  plane:
+    staticFriction: 1.0
+    dynamicFriction: 1.0
+    restitution: 0.0
+
+  numAgents: 2
+
+  histObs:
+    EnableHistObs: False
+    histObsStep : 25
+  
+  reward_specs:
+    k_pos: 100
+    k_rot: 10
+    k_vel: 0.1
+    k_ang_vel: 0.1
+    w_pos: 0.5
+    w_rot: 0.3
+    w_vel: 0.1
+    w_ang_vel: 0.1
+
+sim:
+  substeps: 2
+  physx:
+    num_threads: 4
+    solver_type: 1  # 0: pgs, 1: tgs
+    num_position_iterations: 4
+    num_velocity_iterations: 0
+    contact_offset: 0.02
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 10.0
+    default_buffer_size_multiplier: 10.0
+
+  flex:
+    num_inner_iterations: 10
+    warm_start: 0.25

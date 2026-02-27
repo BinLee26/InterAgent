@@ -1,0 +1,5 @@
+motions:
+- file: 1_person1.npy
+  weight: 1.0
+- file: 1_person2.npy
+  weight: 1.0
