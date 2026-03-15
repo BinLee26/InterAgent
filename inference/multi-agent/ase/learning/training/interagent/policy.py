@@ -9,7 +9,7 @@ from einops import rearrange, reduce
 
 from diffusers.schedulers.scheduling_ddpm import DDPMScheduler
 
-from interagent.utils.normalizer import LinearNormalizer
+from training.utils.normalizer import LinearNormalizer
 import numpy as np
 
 class DiffusionPolicy(nn.Module):
