@@ -17,8 +17,6 @@ from einops import rearrange, reduce
 from functools import partial
 from tqdm import tqdm
 
-from interagent.policy import DiffusionPolicy
-from interagent.dataset.dataset import DiffusionPolicyDataset
 from interagent.utils.common import get_scheduler
 from interagent.utils.data import dict_apply
 from interagent.utils.ema_model import EMAModel
