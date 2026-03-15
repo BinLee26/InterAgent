@@ -17,9 +17,9 @@ from einops import rearrange, reduce
 from functools import partial
 from tqdm import tqdm
 
-from interagent.utils.common import get_scheduler
-from interagent.utils.data import dict_apply
-from interagent.utils.ema_model import EMAModel
+from training.utils.common import get_scheduler
+from training.utils.data import dict_apply
+from training.utils.ema_model import EMAModel
 
 
 # from accelerate import Accelerator, DistributedDataParallelKwargs
