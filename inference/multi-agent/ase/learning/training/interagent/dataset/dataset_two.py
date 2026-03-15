@@ -4,8 +4,8 @@ import random
 from torch.utils.data import Dataset
 import clip
 import torch
-from pdp.utils.data import dict_apply
-from pdp.utils.normalizer import LinearNormalizer
+from interagent.utils.data import dict_apply
+from interagent.utils.normalizer import LinearNormalizer
 import numpy as np
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
