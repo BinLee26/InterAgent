@@ -2,8 +2,8 @@ import os
 import random
 from torch.utils.data import Dataset
 import torch
-from pdp.utils.data import dict_apply
-from pdp.utils.normalizer import LinearNormalizer
+from training.utils.data import dict_apply
+from training.utils.normalizer import LinearNormalizer
 import numpy as np
 import lmdb
 
