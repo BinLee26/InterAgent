@@ -17,11 +17,11 @@ from einops import rearrange, reduce
 from functools import partial
 from tqdm import tqdm
 
-from pdp.policy import DiffusionPolicy
-from pdp.dataset.dataset import DiffusionPolicyDataset
-from pdp.utils.common import get_scheduler
-from pdp.utils.data import dict_apply
-from pdp.utils.ema_model import EMAModel
+from interagent.policy import DiffusionPolicy
+from interagent.dataset.dataset import DiffusionPolicyDataset
+from interagent.utils.common import get_scheduler
+from interagent.utils.data import dict_apply
+from interagent.utils.ema_model import EMAModel
 
 
 # from accelerate import Accelerator, DistributedDataParallelKwargs
