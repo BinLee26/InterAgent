@@ -19,11 +19,9 @@ from einops import rearrange, reduce
 from functools import partial
 from tqdm import tqdm
 
-from pdp.policy import DiffusionPolicy
-from pdp.dataset.dataset import DiffusionPolicyDataset
-from pdp.utils.common import get_scheduler
-from pdp.utils.data import dict_apply
-from pdp.utils.ema_model import EMAModel
+from training.utils.common import get_scheduler
+from training.utils.data import dict_apply
+from training.utils.ema_model import EMAModel
 
 from torch.utils.tensorboard import SummaryWriter
 
