@@ -1,0 +1,37 @@
+interhuman:
+    NAME: interdp
+    DATA_ROOT: ./data/interhuman_processed
+    MOTION_REP: global
+    MODE: train
+    CACHE: True
+
+interhuman_val:
+    NAME: interdp
+    DATA_ROOT: ./data/interhuman_processed
+    MOTION_REP: global
+    MODE: val
+    CACHE: True
+
+interhuman_test:
+    NAME: interdp
+    DATA_ROOT: /nas/nas_24/libin/Interhuman/Results_with_Hist_Encoder/eval_data_pos_rot/interx/gt_data/
+    ANNOT_ROOT: /nas/nas_24/libin/InterX/data_total_mix/texts
+    MOTION_REP: global
+    MODE: test
+    CACHE: True
+
+interhuman_generated:
+    NAME: interdp
+    DATA_ROOT: /nas/nas_24/libin/Interhuman/Results_with_Hist_Encoder/eval_data_pos_rot/interx/20260104_pdp_interx_cfg35
+    ANNOT_ROOT: /nas/nas_24/libin/InterX/data_total_mix/texts
+    MOTION_REP: global
+    MODE: generated
+    CACHE: True
+
+interhuman_mm_generated:
+    NAME: interdp
+    DATA_ROOT: /nas/nas_24/libin/Interhuman/Results_with_Hist_Encoder/eval_data_pos_rot/interx/20260104_pdp_interx_cfg35
+    ANNOT_ROOT: /nas/nas_24/libin/InterX/data_total_mix/texts
+    MOTION_REP: global
+    MODE: mm_generated
+    CACHE: True
